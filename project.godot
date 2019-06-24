@@ -20,6 +20,10 @@ run/main_scene="res://Node2D.tscn"
 boot_splash/image="res://RainboeClowdGames.png"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=768
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
