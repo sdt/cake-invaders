@@ -2,8 +2,9 @@ extends Sprite
 
 # Declare member variables here. Examples:
 var speed = 0
-var maxSpeed = 6
-# var b = "text"
+const maxSpeed = 6
+var fireButtonDown = false
+const Bullet = preload("res://Bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var fireButtonPrev = fireButtonDown
+	fireButtonDown = Input.is_key_pressed(KEY_SPACE)
+	if fireButtonDown and not fireButtonPrev:
+		fire()
 	if Input.is_key_pressed(KEY_LEFT):
 		if speed > 0:
 			speed = -1
@@ -27,3 +32,9 @@ func _process(delta):
 		speed = speed - 1
 		
 	self.position.x = self.position.x + speed
+
+func fire():
+	var bullet = Bullet.instance()
+	bullet.position = self.position
+	bullet.position.y = bullet.position.y - 40
+	self.get_parent().add_child(bullet)
