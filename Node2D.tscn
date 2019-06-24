@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Doughnut.png" type="Texture" id=1]
+[ext_resource path="res://Donut.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Donut" type="Sprite" parent="."]
+position = Vector2( 300, 200 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
