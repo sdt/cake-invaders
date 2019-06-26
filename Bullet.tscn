@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PoolVector2Array( -1.57605, -31.3148, -20.915, -2.58267, -24.7828, 23.3868, -1.02349, 29.4648, 26.6036, 25.0444, 19.4206, -3.13522 )
