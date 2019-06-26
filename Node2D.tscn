@@ -23,4 +23,5 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
 [node name="FloralCupcake" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 150 )
 
