@@ -2,15 +2,24 @@ extends Sprite
 
 # Declare member variables here. Examples:
 # var a = 2
-# var b = "text"
+var damageTime = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Area2D.connect("area_entered", self, "hit")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+		
+	if damageTime > 0:
+		damageTime = damageTime - delta
+	elif damageTime < 0:
+		damageTime = 0
+		modulate.g = 1
+		modulate.b = 1
 
 func hit(object):
-	modulate.a = modulate.a - 0.1
+	damageTime = 0.33
+	modulate.g = 0.5
+	modulate.b = 0.5
