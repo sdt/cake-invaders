@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://FloralCupcakeOfAwesomeness.png" type="Texture" id=1]
+[ext_resource path="res://FloralCupcake.gd" type="Script" id=2]
+
+[node name="FloralCupcake" type="Sprite"]
+position = Vector2( 100, 100 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 9.86987, -219.869, 134.764, -85.1146, 88.7504, 187.681, -9.85039, 204.114, -108.451, 187.681, -128.171, -114.695 )
+
