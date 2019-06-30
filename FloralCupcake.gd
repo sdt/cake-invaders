@@ -11,13 +11,16 @@ var yTheta = 0
 const timeScale = 3.2
 
 const HomingMissile = preload("res://HomingMissile.tscn")
-const missileTime = 5
-var timeUntilMissile = missileTime
+const missileTime = 55
+var timeUntilMissile = 1
+
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	originalPosition = position
 	$Area2D.connect("area_entered", self, "hit")
+	player = get_parent().find_node("Player", true, false);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,7 +43,7 @@ func _process(delta):
 	timeUntilMissile = timeUntilMissile - delta
 	if timeUntilMissile < 0:
 		timeUntilMissile = timeUntilMissile + missileTime
-		fire(666)
+		fire(player)
 
 func hit(object):
 	damageTime = 0.33
