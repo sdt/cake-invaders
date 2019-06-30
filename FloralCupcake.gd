@@ -4,11 +4,15 @@ extends Sprite
 # var a = 2
 var damageTime = 0
 var originalPosition
-var xRadius = 450
-var yRadius = 50
+const xRadius = 450
+const yRadius = 50
 var xTheta = 0
 var yTheta = 0
-var timeScale = 3.2
+const timeScale = 3.2
+
+const HomingMissile = preload("res://HomingMissile.tscn")
+const missileTime = 5
+var timeUntilMissile = missileTime
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,8 +36,20 @@ func _process(delta):
 		damageTime = 0
 		modulate.g = 1
 		modulate.b = 1
+		
+	timeUntilMissile = timeUntilMissile - delta
+	if timeUntilMissile < 0:
+		timeUntilMissile = timeUntilMissile + missileTime
+		fire(666)
 
 func hit(object):
 	damageTime = 0.33
 	modulate.g = 0.5
 	modulate.b = 0.5
+	
+func fire(target):
+	var missile = HomingMissile.instance()
+	missile.position = position
+	missile.position.y = missile.position.y + 40
+	missile.target = target
+	get_parent().add_child(missile)

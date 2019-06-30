@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Strawberry Bullet.png" type="Texture" id=1]
+[ext_resource path="res://HomingMissile.gd" type="Script" id=2]
+
+[node name="HomingMissile" type="Sprite"]
+rotation = 3.14159
+z_index = -2
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 22.4519, 30.1141, -21.3342, 27.9873, -27.9646, 15.1017, -19.2074, -11.0448, -2.81893, -28.9345, 20.0749, -3.16328, 28.8321, 20.4812 )
+
