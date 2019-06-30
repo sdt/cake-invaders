@@ -8,6 +8,7 @@ var xRadius = 450
 var yRadius = 50
 var xTheta = 0
 var yTheta = 0
+var timeScale = 3.2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,10 +17,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	xTheta = xTheta + delta * 0.13
+	xTheta = xTheta + delta * 0.13 * timeScale
 	while xTheta > PI * 2:
 		xTheta = xTheta - PI * 2
-	yTheta = yTheta + delta * 0.57
+	yTheta = yTheta + delta * 0.57 * timeScale
 	while yTheta > PI * 2:
 		yTheta = yTheta - PI * 2 
 	position.x = originalPosition.x + sin(xTheta) * xRadius

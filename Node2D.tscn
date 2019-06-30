@@ -9,8 +9,8 @@
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="Sprite" parent="."]
-position = Vector2( 512, 620 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 960, 980 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -23,5 +23,6 @@ scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
 [node name="FloralCupcake" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 150 )
+position = Vector2( 960, 275 )
+scale = Vector2( 0.75, 0.75 )
 

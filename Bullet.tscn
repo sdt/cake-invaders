@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Strawberry Bullet.png" type="Texture" id=1]
+[ext_resource path="res://Blueberry Bullet.png" type="Texture" id=1]
 [ext_resource path="res://Bullet.gd" type="Script" id=2]
 [ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=3]
 
 [node name="Bullet" type="Sprite"]
-scale = Vector2( 0.66, 0.66 )
 z_index = -1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
@@ -15,6 +14,6 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( -1.57605, -31.3148, -20.915, -2.58267, -24.7828, 23.3868, -1.02349, 29.4648, 26.6036, 25.0444, 19.4206, -3.13522 )
+polygon = PoolVector2Array( -1.57605, -31.3148, -17.7167, -25.8282, -18.6644, -13.3919, -25.6778, 4.42574, -19.2331, 22.0539, -8.04963, 30.2785, 14.5068, 25.3502, 25.8798, 4.31017, 22.6574, -8.38967, 16.4023, -15.2135, 12.9904, -28.6715 )
 script = ExtResource( 3 )
 
