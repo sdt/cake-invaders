@@ -4,6 +4,7 @@ extends Sprite
 # var a = 2
 # var b = "text"
 var speed = 5
+const gameObjectType = "PlayerBullet"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

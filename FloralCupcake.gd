@@ -8,10 +8,11 @@ const xRadius = 450
 const yRadius = 50
 var xTheta = 0
 var yTheta = 0
-const timeScale = 3.2
+const timeScale = 3.0
+const gameObjectType = "Enemy"
 
 const HomingMissile = preload("res://HomingMissile.tscn")
-const missileTime = 55
+const missileTime = 2
 var timeUntilMissile = 1
 
 var player

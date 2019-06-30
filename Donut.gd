@@ -5,6 +5,7 @@ var speed = 0
 const maxSpeed = 6
 var fireButtonDown = false
 const Bullet = preload("res://Bullet.tscn")
+const gameObjectType = "Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
