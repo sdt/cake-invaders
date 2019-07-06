@@ -33,6 +33,6 @@ scale = Vector2( 0.75, 0.75 )
 
 [node name="EnemyBehaviourSinus" type="Node2D" parent="Level/FloralCupcake"]
 script = ExtResource( 5 )
-xRadius = 800
-timeScale = 6.0
+horizontalSpeed = 5.2
+verticalSpeed = 10.0
 

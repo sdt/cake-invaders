@@ -3,9 +3,10 @@ class_name EnemyBehaviourSinus
 extends EnemyBehaviour
 
 var originalPosition
-export(int) var xRadius = 450
-export(int) var yRadius = 50
-export(float) var timeScale = 3.0
+export(int) var width = 960
+export(int) var height = 50
+export(float) var horizontalSpeed = 3.2
+export(float) var verticalSpeed = 8.1
 
 var xTheta = 0
 var yTheta = 0
@@ -21,11 +22,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	xTheta = xTheta + delta * 0.13 * timeScale
+	xTheta = xTheta + delta * horizontalSpeed * 0.1
 	while xTheta > PI * 2:
 		xTheta = xTheta - PI * 2
-	yTheta = yTheta + delta * 0.57 * timeScale
+	yTheta = yTheta + delta * verticalSpeed * 0.1
 	while yTheta > PI * 2:
 		yTheta = yTheta - PI * 2 
-	enemy.position.x = originalPosition.x + sin(xTheta) * xRadius
-	enemy.position.y = originalPosition.y + sin(yTheta) * yRadius
+	enemy.position.x = originalPosition.x + cos(xTheta) * width
+	enemy.position.y = originalPosition.y + sin(yTheta) * height
