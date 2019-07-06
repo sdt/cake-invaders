@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CakePop.png" type="Texture" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=2]
+
+[node name="CakePop" type="Sprite"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 120 )
+script = ExtResource( 2 )
+missileTime = 0.75
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -19.6598, 69.7005, -44.4926, 62.3967, -66.4039, 33.1816, -67.8646, -41.3168, -25.5028, -93.9038, 38.7703, -93.9038, 70.9069, -50.0812, 82.5929, 22.9564, 60.6816, 58.0144, 13.9375, 74.0827, 15.3983, 319.489, -16.7383, 328.254 )
+
