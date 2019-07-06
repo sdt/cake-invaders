@@ -1,3 +1,5 @@
+class_name HomingMissile
+
 extends Sprite
 
 var target

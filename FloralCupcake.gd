@@ -1,4 +1,4 @@
-extends Sprite
+extends Enemy
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,7 +10,6 @@ var xTheta = 0
 var yTheta = 0
 const timeScale = 3.0
 const gameObjectType = "Enemy"
-
 const HomingMissile = preload("res://HomingMissile.tscn")
 const missileTime = 2
 var timeUntilMissile = 1
@@ -52,7 +51,7 @@ func hit(object):
 	modulate.b = 0.5
 	
 func fire(target):
-	var missile = HomingMissile.instance()
+	var missile = HomingMissile.instance();
 	missile.position = position
 	missile.position.y = missile.position.y + 40
 	missile.target = target
