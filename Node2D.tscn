@@ -30,6 +30,7 @@ message = "Level 1"
 [node name="FloralCupcake" parent="Level" instance=ExtResource( 4 )]
 position = Vector2( 960, 275 )
 scale = Vector2( 0.75, 0.75 )
+missileTime = 0.5
 
 [node name="EnemyBehaviourSinus" type="Node2D" parent="Level/FloralCupcake"]
 script = ExtResource( 5 )
