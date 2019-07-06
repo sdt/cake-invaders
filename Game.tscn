@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://FloralCupcake.tscn" type="PackedScene" id=5]
 [ext_resource path="res://EnemyBehaviousSinus.gd" type="Script" id=6]
 [ext_resource path="res://CakePop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SpicedScone.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -43,7 +44,7 @@ verticalSpeed = 10.0
 [node name="FloralCupcake2" parent="Level" instance=ExtResource( 5 )]
 position = Vector2( 1308.73, 475.341 )
 scale = Vector2( 0.75, 0.75 )
-health = 600
+health = 15
 missileTime = 1.0
 
 [node name="EnemyBehaviourSinus" type="Node2D" parent="Level/FloralCupcake2"]
@@ -58,4 +59,14 @@ script = ExtResource( 6 )
 width = 100
 horizontalSpeed = 5.0
 verticalSpeed = 10.0
+
+[node name="SpicedScone" parent="Level" instance=ExtResource( 8 )]
+position = Vector2( 332.174, 403.655 )
+
+[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/SpicedScone"]
+script = ExtResource( 6 )
+width = 200
+height = 200
+horizontalSpeed = 4.0
+verticalSpeed = 4.0
 
