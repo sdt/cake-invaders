@@ -8,8 +8,8 @@ export(int) var height = 50
 export(float) var horizontalSpeed = 3.2
 export(float) var verticalSpeed = 8.1
 
-var xTheta = 0
-var yTheta = 0
+var xTheta = rand_range(0, PI * 2)
+var yTheta = rand_range(0, PI * 2)
 
 # Declare member variables here. Examples:
 # var a = 2

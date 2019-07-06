@@ -9,7 +9,7 @@ const angleDelta = PI * 0.2
 const angleLimit = PI / 4
 const minAngle = PI - angleLimit
 const maxAngle = PI + angleLimit
-var life = 3
+var life = 1
 const gameObjectType = "EnemyBullet"
 
 func _ready():
