@@ -2,9 +2,16 @@ class_name Enemy
 
 extends Sprite
 
+const gameObjectType = "Enemy"
+
+const missileClass = {
+	"HomingMissile": preload("res://HomingMissile.tscn"),
+}
+
 export(int) var health = 10
 export(float) var missileTime = 2
 export(Vector2) var missileOffset = Vector2(0, 40)
+export(String, "HomingMissile", "CherryBomb") var missileType = "HomingMissile"
 var timeUntilMissile = rand_range(0, missileTime)
 var player
 var damageTime = 0
@@ -24,7 +31,7 @@ func _process(delta):
 	updateMissile(delta)
 
 func fire(target):
-	var missile = makeMissile()
+	var missile = missileClass.get(missileType).instance()
 	missile.position = position + missileOffset
 	missile.target = target
 	get_parent().add_child(missile)
