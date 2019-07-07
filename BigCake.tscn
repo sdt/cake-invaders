@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ChocolateHappyBirthdayCake.png" type="Texture" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=2]
+
+[node name="BigCake" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 170, -240, 10, -250, -170, -250, -220, -210, -230, -140, -220, 20, -230, 210, -230, 210, -130, 250, 190, 240, 240, 150, 220, -10, 230, -170 )
+
