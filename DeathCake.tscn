@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BIGCAKE.png" type="Texture" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=2]
+
+[node name="DeathCake" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -458.01, 502.514, -448.666, 304.424, -372.047, 248.361, -368.309, 93.2527, -274.871, 27.8458, -269.264, -86.1493, -207.595, -157.163, -215.07, -252.47, -149.663, -310.402, -151.532, -351.515, -110.419, -387.021, -106.681, -461.772, -71.1747, -471.116, 1.7074, -465.51, 14.7888, -388.89, 44.6891, -362.727, 57.7705, -310.402, 110.096, -310.402, 145.603, -159.031, 227.829, -153.425, 259.598, 20.3707, 293.236, 29.7145, 364.249, 67.09, 369.855, 153.053, 371.724, 250.229, 427.787, 259.573, 446.475, 513.726 )
+

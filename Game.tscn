@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://SpicedScone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://CakeSlice.tscn" type="PackedScene" id=9]
 [ext_resource path="res://BigCake.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Tablecloth.png" type="Texture" id=11]
+[ext_resource path="res://DeathCake.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Tablecloth.png" type="Texture" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -80,9 +81,15 @@ width = 200
 horizontalSpeed = 15.0
 verticalSpeed = 20.0
 
+[node name="DeathCake" parent="Level" instance=ExtResource( 11 )]
+position = Vector2( 960, 472.799 )
+
+[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/DeathCake"]
+script = ExtResource( 6 )
+
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 z_index = -10
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 centered = false
 
