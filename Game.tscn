@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://EnemyBehaviousSinus.gd" type="Script" id=6]
 [ext_resource path="res://CakePop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SpicedScone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Tablecloth.png" type="Texture" id=9]
+[ext_resource path="res://CakeSlice.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Tablecloth.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -42,18 +43,9 @@ width = 600
 horizontalSpeed = 5.2
 verticalSpeed = 10.0
 
-[node name="FloralCupcake2" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 1308.73, 475.341 )
-scale = Vector2( 0.75, 0.75 )
-health = 15
-missileTime = 1.0
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/FloralCupcake2"]
-script = ExtResource( 6 )
-width = 750
-
 [node name="CakePop" parent="Level" instance=ExtResource( 7 )]
 position = Vector2( 960, 300 )
+scale = Vector2( 0.8, 0.8 )
 
 [node name="EnemyBehaviourSinus" type="Node2D" parent="Level/CakePop"]
 script = ExtResource( 6 )
@@ -71,9 +63,16 @@ height = 200
 horizontalSpeed = 4.0
 verticalSpeed = 4.0
 
+[node name="CakeSlice" parent="Level" instance=ExtResource( 9 )]
+position = Vector2( 1592.19, 203.696 )
+
+[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/CakeSlice"]
+script = ExtResource( 6 )
+width = 250
+
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 z_index = -10
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 centered = false
 
