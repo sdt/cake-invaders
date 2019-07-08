@@ -12,9 +12,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position.y = self.position.y - speed
-	if self.position.y < 0:
-		self.queue_free()
+	position.y = position.y - speed
+	if position.y < 0:
+		queue_free()
 
 func hit(object):
 	queue_free()

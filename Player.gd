@@ -31,11 +31,11 @@ func _process(delta):
 		speed = speed + 1
 	elif speed > 0:
 		speed = speed - 1
-		
-	self.position.x = self.position.x + speed
+
+	position.x = position.x + speed
 
 func fire():
 	var bullet = Bullet.instance()
-	bullet.position = self.position
+	bullet.position = position
 	bullet.position.y = bullet.position.y - 40
-	self.get_parent().add_child(bullet)
+	get_parent().add_child(bullet)
