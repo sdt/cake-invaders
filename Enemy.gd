@@ -6,12 +6,13 @@ const gameObjectType = "Enemy"
 
 const missileClass = {
 	"HomingMissile": preload("res://HomingMissile.tscn"),
+	"Bomb": preload("res://Bomb.tscn"),
 }
 
 export(int) var health = 10
 export(float) var missileTime = 2
 export(Vector2) var missileOffset = Vector2(0, 40)
-export(String, "HomingMissile", "CherryBomb") var missileType = "HomingMissile"
+export(String, "HomingMissile", "Bomb") var missileType = "HomingMissile"
 var timeUntilMissile = rand_range(0, missileTime)
 var player
 var damageTime = 0

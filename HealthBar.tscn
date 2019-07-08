@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://HealthBar.gd" type="Script" id=1]
+
+[node name="HealthBar" type="Sprite"]
+z_index = 5
+script = ExtResource( 1 )
+

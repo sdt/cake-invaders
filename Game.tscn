@@ -68,6 +68,7 @@ verticalSpeed = 4.0
 
 [node name="CakeSlice" parent="Level" instance=ExtResource( 9 )]
 position = Vector2( 1592.19, 203.696 )
+missileType = "Bomb"
 
 [node name="EnemyBehaviourSinus" type="Node2D" parent="Level/CakeSlice"]
 script = ExtResource( 6 )

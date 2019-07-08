@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://CherryBomb.png" type="Texture" id=1]
+[ext_resource path="res://Bomb.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.8313
+
+[node name="Bomb" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 15, -35.891 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1.84059, 1.84059 )
+shape = SubResource( 1 )
+
