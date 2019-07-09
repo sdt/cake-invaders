@@ -1,3 +1,5 @@
+class_name Bullet
+
 extends Sprite
 
 # Declare member variables here. Examples:
@@ -5,6 +7,7 @@ extends Sprite
 # var b = "text"
 var speed = 5
 const gameObjectType = "PlayerBullet"
+var damage = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

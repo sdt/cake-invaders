@@ -1,17 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
-[ext_resource path="res://Level.tscn" type="PackedScene" id=4]
-[ext_resource path="res://FloralCupcake.tscn" type="PackedScene" id=5]
-[ext_resource path="res://EnemyBehaviousSinus.gd" type="Script" id=6]
-[ext_resource path="res://CakePop.tscn" type="PackedScene" id=7]
-[ext_resource path="res://SpicedScone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://CakeSlice.tscn" type="PackedScene" id=9]
-[ext_resource path="res://BigCake.tscn" type="PackedScene" id=10]
-[ext_resource path="res://DeathCake.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Tablecloth.png" type="Texture" id=12]
+[ext_resource path="res://Tablecloth.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -32,68 +24,9 @@ collision_mask = 8
 scale = Vector2( 10, 10 )
 shape = SubResource( 1 )
 
-[node name="Level" parent="." instance=ExtResource( 4 )]
-message = "Level 1"
-
-[node name="FloralCupcake" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 736.369, 233.069 )
-scale = Vector2( 0.75, 0.75 )
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/FloralCupcake"]
-script = ExtResource( 6 )
-width = 600
-horizontalSpeed = 5.2
-verticalSpeed = 10.0
-
-[node name="CakePop" parent="Level" instance=ExtResource( 7 )]
-position = Vector2( 960, 300 )
-scale = Vector2( 0.8, 0.8 )
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/CakePop"]
-script = ExtResource( 6 )
-width = 100
-horizontalSpeed = 5.0
-verticalSpeed = 10.0
-
-[node name="SpicedScone" parent="Level" instance=ExtResource( 8 )]
-position = Vector2( 332.174, 403.655 )
-scale = Vector2( 0.7, 0.7 )
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/SpicedScone"]
-script = ExtResource( 6 )
-width = 200
-height = 200
-horizontalSpeed = 4.0
-verticalSpeed = 4.0
-
-[node name="CakeSlice" parent="Level" instance=ExtResource( 9 )]
-position = Vector2( 1592.19, 203.696 )
-missileType = "Bomb"
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/CakeSlice"]
-script = ExtResource( 6 )
-width = 250
-
-[node name="BigCake" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 1371.68, 611.088 )
-z_index = -1
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/BigCake"]
-script = ExtResource( 6 )
-width = 200
-horizontalSpeed = 15.0
-verticalSpeed = 20.0
-
-[node name="DeathCake" parent="Level" instance=ExtResource( 11 )]
-position = Vector2( 960, 472.799 )
-z_index = -2
-
-[node name="EnemyBehaviourSinus" type="Node2D" parent="Level/DeathCake"]
-script = ExtResource( 6 )
-
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 z_index = -10
-texture = ExtResource( 12 )
+texture = ExtResource( 4 )
 centered = false
 

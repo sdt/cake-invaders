@@ -1,3 +1,5 @@
+class_name Player
+
 extends Sprite
 
 # Declare member variables here. Examples:

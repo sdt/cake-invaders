@@ -41,6 +41,11 @@ func makeMissile():
 	pass
 
 func hit(object):
+	var thing = object.get_parent()
+	if thing is Bullet:
+		health = health - thing.damage
+		printt("Health = ", health)
+	printt(object)
 	damageTime = 0.33
 	modulate.g = 0.5
 	modulate.b = 0.5
