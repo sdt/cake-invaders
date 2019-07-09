@@ -14,6 +14,8 @@ const Level = [
 var startScreen
 var levelIndex = 0
 var currentLevel
+const messageTime = 2
+var messageTimeRemaining = 0
 
 func _init():
 	randomize() # Replace with function body.
@@ -25,6 +27,10 @@ func _ready():
 	initLevel(Level[levelIndex])
 		
 func _process(delta):
+	if messageTimeRemaining > 0:
+		messageTimeRemaining = messageTimeRemaining - delta
+		if messageTimeRemaining <= 0:
+			$Message.visible = false
 	if currentLevel.isFinished():
 		remove_child(currentLevel)
 		levelIndex = (levelIndex + 1) % Level.size()
@@ -53,4 +59,9 @@ func updateStartScreen():
 func initLevel(type):
 	currentLevel = type.instance()
 	currentLevel.player = player
+	var message = $Message
+	message.text = currentLevel.message
+	message.visible = true
+	
+	messageTimeRemaining = messageTime
 	add_child(currentLevel)

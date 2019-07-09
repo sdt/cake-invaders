@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://Tablecloth.png" type="Texture" id=4]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -29,4 +30,18 @@ modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 z_index = -10
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Message" type="Label" parent="."]
+margin_left = 556.0
+margin_top = 394.0
+margin_right = 1308.0
+margin_bottom = 669.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.909804, 0.776471, 0, 1 )
+text = "Hello, world!
+New Line"
+align = 1
+valign = 1
+autowrap = true
 

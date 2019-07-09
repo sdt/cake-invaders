@@ -2,7 +2,7 @@ class_name Level
 
 extends Node2D
 
-export(String) var message = "Get Ready";
+export(String, MULTILINE) var message = "Get Ready";
 
 var shown = false
 

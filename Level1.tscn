@@ -6,6 +6,8 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
+message = "Level 1
+Get Ready!"
 
 [node name="CakePop" parent="." instance=ExtResource( 2 )]
 position = Vector2( 957.324, 216.758 )
