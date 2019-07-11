@@ -11,6 +11,7 @@ const gameObjectType = "Player"
 var healthBar
 var maxHealth = 100
 var health = maxHealth
+var pausedMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +41,8 @@ func _process(delta):
 	position.x = position.x + speed
 
 func fire():
+	if pausedMode:
+		return
 	var bullet = Bullet.instance()
 	bullet.position = position
 	bullet.position.y = bullet.position.y - 40
@@ -56,7 +59,8 @@ func updateHealth(damage):
 	health -= damage
 	if health < 0:
 		health = 0
-	healthBar.setValue(health, maxHealth)
+	healthBar.setValue(health, maxHealth, damage == 0)
 	
-	
+func setPausedMode(isPausedMode):
+	pausedMode = isPausedMode
 	

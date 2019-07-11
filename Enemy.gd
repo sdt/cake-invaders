@@ -34,6 +34,8 @@ func _ready():
 func _process(delta):
 	updateDamageState(delta)
 	updateMissile(delta)
+	if currentHealth == 0:
+		queue_free()
 
 func fire(target):
 	var missile = missileClass.get(missileType).instance()

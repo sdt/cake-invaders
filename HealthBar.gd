@@ -10,8 +10,10 @@ var targetValue = 1.0
 onready var barOffset = -bar / 2
 const targetRate = 1
 	
-func setValue(currentHealth, maxHealth):
+func setValue(currentHealth, maxHealth, immediate = false):
 	targetValue = currentHealth * 1.0 / maxHealth
+	if immediate:
+		value = targetValue
 	
 func _process(delta):
 	var adjust = delta * targetRate
