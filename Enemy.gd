@@ -27,7 +27,6 @@ func _enter_tree():
 func _ready():
 	player = get_node("/root/Game/Player")
 	$Area2D.connect("area_entered", self, "hit")
-	printt("ENEMY HEALTHBAR=", $HealthBar)
 	currentHealth = health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,8 +50,6 @@ func hit(object):
 		if currentHealth < 0:
 			currentHealth = 0
 		healthBar.setValue(currentHealth, health)
-		printt("Health = ", currentHealth)
-	printt(object)
 	damageTime = 0.33
 	modulate.g = 0.5
 	modulate.b = 0.5

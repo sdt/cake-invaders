@@ -7,6 +7,8 @@
 radius = 40.8313
 
 [node name="Bomb" type="Sprite"]
+z_index = 30
+z_as_relative = false
 texture = ExtResource( 1 )
 offset = Vector2( 15, -35.891 )
 script = ExtResource( 2 )

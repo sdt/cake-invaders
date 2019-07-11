@@ -8,6 +8,8 @@
 
 [node name="EnemyHealthBar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1620.22, 92.5041 )
+z_index = 20
+z_as_relative = false
 texture = ExtResource( 2 )
 bar = Vector2( 515, 60 )
 healthyColor = Color( 0.258824, 0.898039, 0.258824, 1 )
@@ -15,6 +17,8 @@ sickColor = Color( 0.866667, 0.321569, 0.321569, 1 )
 
 [node name="PlayerHealthBar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 316.756, 95.3073 )
+z_index = 20
+z_as_relative = false
 texture = ExtResource( 3 )
 bar = Vector2( 500, 65 )
 healthyColor = Color( 0.258824, 0.898039, 0.258824, 1 )

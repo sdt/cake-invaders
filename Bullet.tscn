@@ -5,7 +5,8 @@
 [ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=3]
 
 [node name="Bullet" type="Sprite"]
-z_index = -1
+z_index = 50
+z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

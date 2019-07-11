@@ -5,6 +5,8 @@
 
 [node name="SpicedScone" type="Sprite"]
 scale = Vector2( 0.5, 0.5 )
+z_index = 60
+z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

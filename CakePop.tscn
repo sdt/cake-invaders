@@ -5,6 +5,8 @@
 
 [node name="CakePop" type="Sprite"]
 scale = Vector2( 0.4, 0.4 )
+z_index = 60
+z_as_relative = false
 texture = ExtResource( 1 )
 offset = Vector2( 0, 120 )
 script = ExtResource( 2 )

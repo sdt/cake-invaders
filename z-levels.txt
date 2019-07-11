@@ -1,0 +1,14 @@
+Background              0
+
+Health-bar-back         10
+Health-bar-front        20
+
+cherry                  30
+strawberry              40
+blueberry               50
+
+Enemy                   60
+
+player                  70
+
+Text                    100

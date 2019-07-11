@@ -5,7 +5,8 @@
 
 [node name="HomingMissile" type="Sprite"]
 rotation = 3.14159
-z_index = -2
+z_index = 40
+z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

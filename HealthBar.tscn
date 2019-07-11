@@ -4,7 +4,6 @@
 [ext_resource path="res://BarCanvas.gd" type="Script" id=2]
 
 [node name="HealthBar" type="Sprite"]
-z_index = 5
 script = ExtResource( 1 )
 healthyColor = Color( 0.133333, 0.717647, 0.133333, 1 )
 sickColor = Color( 0.847059, 0.180392, 0.180392, 1 )
