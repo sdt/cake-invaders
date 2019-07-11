@@ -8,10 +8,13 @@ const maxSpeed = 6
 var fireButtonDown = false
 const Bullet = preload("res://Bullet.tscn")
 const gameObjectType = "Player"
+var healthBar
+var maxHealth = 100
+var health = maxHealth
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Area2D.connect("area_entered", self, "hit")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -41,3 +44,19 @@ func fire():
 	bullet.position = position
 	bullet.position.y = bullet.position.y - 40
 	get_parent().add_child(bullet)
+
+func hit(object):
+	var what = object.get_parent()
+	if what is HomingMissile:
+		updateHealth(5)
+	elif what is Bomb:
+		updateHealth(12)
+		
+func updateHealth(damage):
+	health -= damage
+	if health < 0:
+		health = 0
+	healthBar.setValue(health, maxHealth)
+	
+	
+	

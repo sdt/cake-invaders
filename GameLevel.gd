@@ -4,7 +4,6 @@ extends Level
 
 export(bool) var hasPlayer = true;
 
-var player
 var enemy
 
 func _ready():
@@ -12,6 +11,9 @@ func _ready():
 		if child is Enemy:
 			enemy = child
 			enemy.healthBar = $HealthBars/EnemyHealthBar
+			
+func setPlayer(player):
+	player.healthBar = $HealthBars/PlayerHealthBar
 			
 func isFinished():
 	return enemy.currentHealth <= 0

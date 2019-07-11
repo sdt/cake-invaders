@@ -58,7 +58,7 @@ func updateStartScreen():
 		
 func initLevel(type):
 	currentLevel = type.instance()
-	currentLevel.player = player
+	currentLevel.setPlayer(player)
 	var message = $Message
 	message.text = currentLevel.message
 	message.visible = true
