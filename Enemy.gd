@@ -8,6 +8,7 @@ const missileClass = {
 	"HomingMissile": preload("res://HomingMissile.tscn"),
 	"Bomb": preload("res://Bomb.tscn"),
 }
+const Explosion = preload("res://Explosion.tscn")
 
 export(int) var health = 10
 export(float) var missileTime = 2
@@ -50,6 +51,7 @@ func hit(object):
 		if currentHealth < 0:
 			currentHealth = 0
 		healthBar.setValue(currentHealth, health)
+		doExplosion(thing.position)
 	damageTime = 0.33
 	modulate.g = 0.5
 	modulate.b = 0.5
@@ -66,3 +68,8 @@ func updateDamageState(delta):
 	elif damageTime < 0:
 		damageTime = 0
 		modulate = Color(1, 1, 1)
+		
+func doExplosion(position):
+	var explosion = Explosion.instance()
+	explosion.position = position
+	get_parent().add_child(explosion)

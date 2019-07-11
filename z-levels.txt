@@ -11,4 +11,6 @@ Enemy                   60
 
 player                  70
 
+explosion               80
+
 Text                    100
