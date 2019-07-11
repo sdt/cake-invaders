@@ -13,4 +13,4 @@ func _ready():
 			enemy = child
 			
 func isFinished():
-	return enemy.health <= 0
+	return enemy.currentHealth <= 0

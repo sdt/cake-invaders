@@ -13,9 +13,11 @@ export(int) var health = 10
 export(float) var missileTime = 2
 export(Vector2) var missileOffset = Vector2(0, 40)
 export(String, "HomingMissile", "Bomb") var missileType = "HomingMissile"
-var timeUntilMissile = rand_range(0, missileTime)
+var timeUntilMissile = rand_range(missileTime/4, missileTime)
 var player
 var damageTime = 0
+var healthBar
+var currentHealth
 
 func _enter_tree():
 	var behaviour = find_node("EnemyBehaviour*", true, false)
@@ -25,6 +27,8 @@ func _enter_tree():
 func _ready():
 	player = get_node("/root/Game/Player")
 	$Area2D.connect("area_entered", self, "hit")
+	printt("ENEMY HEALTHBAR=", $HealthBar)
+	currentHealth = health
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,8 +47,11 @@ func makeMissile():
 func hit(object):
 	var thing = object.get_parent()
 	if thing is Bullet:
-		health = health - thing.damage
-		printt("Health = ", health)
+		currentHealth = currentHealth - thing.damage
+		if currentHealth < 0:
+			currentHealth = 0
+		healthBar.setValue(currentHealth, health)
+		printt("Health = ", currentHealth)
 	printt(object)
 	damageTime = 0.33
 	modulate.g = 0.5
