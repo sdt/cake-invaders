@@ -13,4 +13,3 @@ func _ready():
 func _process(delta):
 	enemy.rotate(rotationSpeed * delta)
 	enemy.position += velocity * delta
-	
