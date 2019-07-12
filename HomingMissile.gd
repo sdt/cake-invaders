@@ -1,6 +1,6 @@
 class_name HomingMissile
 
-extends Sprite
+extends Projectile
 
 var target
 
@@ -12,16 +12,12 @@ const maxAngle = PI + angleLimit
 var life = 1
 const gameObjectType = "EnemyBullet"
 
-func _ready():
-	$Area2D.connect("area_entered", self, "hit")
-
 func _process(delta):
 	if position.y >= 1080:
 		die()
 	elif position.y < 900:
 		updateHoming(delta)
-			
-	position = position - transform.y * 3.0
+	position = position - transform.y * 3.0 * 60 * delta
 	
 func updateHoming(delta):
 	var targetAngle = position.angle_to_point(target.position) + angleAdjust
@@ -34,7 +30,7 @@ func updateHoming(delta):
 		angle = angle + angleDelta * delta
 		if angle > maxAngle:
 			angle = maxAngle
-	set_rotation(angle)	
+	set_rotation(angle)
 	
 func hit(object):
 	var what = object.get_parent().gameObjectType
@@ -44,6 +40,3 @@ func hit(object):
 		life = 0
 	if life <= 0:
 		die()
-
-func die():
-	queue_free()
