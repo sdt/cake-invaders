@@ -6,7 +6,6 @@ enum { ModeBegin, ModeStartScreen, ModeMainGame, ModeGameOver }
 var mode = ModeBegin
 
 const StartScreen = preload("res://StartScreen.tscn")
-
 const Level = [
 	preload("res://Level1.tscn"),
 	preload("res://Level2.tscn"),
