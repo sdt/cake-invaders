@@ -18,9 +18,10 @@ var player
 var damageTime = 0
 var healthBar
 var currentHealth
+var behaviour
 
 func _enter_tree():
-	var behaviour = find_node("EnemyBehaviour*", true, false)
+	behaviour = find_node("EnemyBehaviour*", true, false)
 	behaviour.enemy = self
 	
 # Called when the node enters the scene tree for the first time.
@@ -32,9 +33,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	updateDamageState(delta)
-	updateMissile(delta)
-	if currentHealth == 0:
-		queue_free()
+	if !isDead():
+		updateMissile(delta)
 
 func fire(target):
 	var missile = missileClass.get(missileType).instance()
@@ -46,12 +46,16 @@ func makeMissile():
 	pass
 
 func hit(object):
+	if isDead():
+		return
 	var thing = object.get_parent()
 	if thing is Bullet:
 		currentHealth = currentHealth - thing.damage
 		if currentHealth < 0:
 			currentHealth = 0
 		healthBar.setValue(currentHealth, health)
+		if isDead():
+			die()
 	damageTime = 0.33
 	modulate.g = 0.5
 	modulate.b = 0.5
@@ -68,3 +72,13 @@ func updateDamageState(delta):
 	elif damageTime < 0:
 		damageTime = 0
 		modulate = Color(1, 1, 1)
+		
+func isDead():
+	return currentHealth == 0
+		
+func die():
+	remove_child(behaviour)
+	behaviour.queue_free()
+	behaviour = EnemyBehaviourDeath.new()
+	behaviour.enemy = self
+	add_child(behaviour)

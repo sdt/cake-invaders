@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://EnemyBehaviour.gd"
 }, {
 "base": "EnemyBehaviour",
+"class": "EnemyBehaviourDeath",
+"language": "GDScript",
+"path": "res://EnemyBehaviourDeath.gd"
+}, {
+"base": "EnemyBehaviour",
 "class": "EnemyBehaviourSinus",
 "language": "GDScript",
 "path": "res://EnemyBehaviousSinus.gd"
@@ -74,6 +79,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Enemy": "",
 "EnemyBehaviour": "",
+"EnemyBehaviourDeath": "",
 "EnemyBehaviourSinus": "",
 "Explosion": "",
 "GameLevel": "",
