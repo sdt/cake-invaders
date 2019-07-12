@@ -4,7 +4,8 @@ extends Sprite
 
 # Declare member variables here. Examples:
 var speed = 0
-const maxSpeed = 6
+const maxSpeed = 10.0
+const accel = 1.75
 var fireButtonDown = false
 const Bullet = preload("res://Bullet.tscn")
 const gameObjectType = "Player"
@@ -25,20 +26,24 @@ func _process(delta):
 		fire()
 	if Input.is_key_pressed(KEY_LEFT):
 		if speed > 0:
-			speed = -1
+			speed = -accel
 		elif -speed <= maxSpeed:
-			speed = speed - 1
+			speed = speed - accel
 	elif Input.is_key_pressed(KEY_RIGHT):
 		if speed < 0:
-			speed = 1
+			speed = accel
 		elif speed <= maxSpeed:
-			speed = speed + 1
+			speed = speed + accel
 	elif speed < 0:
-		speed = speed + 1
+		speed = speed + accel
+		if speed > 0:
+			speed = 0
 	elif speed > 0:
-		speed = speed - 1
+		speed = speed - accel
+		if speed < 0:
+			speed = 0
 
-	position.x = position.x + speed
+	position.x = position.x + 30 * delta * speed
 
 func fire():
 	if pausedMode:
