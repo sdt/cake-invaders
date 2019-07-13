@@ -13,6 +13,9 @@ var healthBar
 var maxHealth = 100
 var health = maxHealth
 var pausedMode = false
+const edgeOffset = 40
+const leftEdge = 0 - edgeOffset
+const rightEdge = 1920 + edgeOffset
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +47,7 @@ func _process(delta):
 			speed = 0
 
 	position.x = position.x + 30 * delta * speed
+	position.x = clamp(position.x, leftEdge, rightEdge)
 
 func fire():
 	if pausedMode:
