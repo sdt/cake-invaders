@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GameLevel.gd" type="Script" id=1]
+[ext_resource path="res://FloralCupcake.tscn" type="PackedScene" id=2]
+[ext_resource path="res://EnemyBehaviousSinus.gd" type="Script" id=3]
+[ext_resource path="res://HealthBars.tscn" type="PackedScene" id=4]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource( 1 )
+message = "Level 3
+It's time to fight"
+
+[node name="FloralCupcake" parent="." instance=ExtResource( 2 )]
+position = Vector2( 960, 161.67 )
+scale = Vector2( 0.6, 0.6 )
+health = 15
+missileTime = 1.5
+missileType = "Bomb"
+
+[node name="EnemyBehaviourSinus" type="Node2D" parent="FloralCupcake"]
+script = ExtResource( 3 )
+
+[node name="HealthBars" parent="." instance=ExtResource( 4 )]
+
