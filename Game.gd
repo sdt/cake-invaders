@@ -7,6 +7,7 @@ var mode = ModeBegin
 
 const StartScreen = preload("res://StartScreen.tscn")
 const Level = [
+	preload("res://Level4.tscn"),
 	preload("res://Level1.tscn"),
 	preload("res://Level2.tscn"),
 	preload("res://Level3.tscn"),
