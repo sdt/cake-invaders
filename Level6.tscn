@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GameLevel.gd" type="Script" id=1]
+[ext_resource path="res://DeathCake.tscn" type="PackedScene" id=2]
+[ext_resource path="res://EnemyBehaviousSinus.gd" type="Script" id=3]
+[ext_resource path="res://HealthBars.tscn" type="PackedScene" id=4]
+
+[node name="Level6" type="Node2D"]
+script = ExtResource( 1 )
+message = "The Finale
+Victory Will Come To One And Only One
+
+"
+
+[node name="DeathCake" parent="." instance=ExtResource( 2 )]
+position = Vector2( 866.175, 428.883 )
+scale = Vector2( 0.8, 0.8 )
+health = 150
+missileTime = 0.5
+missileOffset = Vector2( 0, -100 )
+
+[node name="EnemyBehaviourSinus" type="Node2D" parent="DeathCake"]
+script = ExtResource( 3 )
+horizontalSpeed = 7.0
+verticalSpeed = 60.0
+
+[node name="HealthBars" parent="." instance=ExtResource( 4 )]
+

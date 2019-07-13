@@ -12,15 +12,16 @@ const Level = [
 	preload("res://Level3.tscn"),
 	preload("res://Level4.tscn"),
 	preload("res://Level5.tscn"),
+	preload("res://Level6.tscn"),
 ]
 var startScreen
-var levelIndex = 0#Level.size() - 1;
+var levelIndex = Level.size() - 1;
 var currentLevel
 const messageTime = 2
 var messageTimeRemaining = 0
 
 func _init():
-	randomize() # Replace with function body.
+	randomize()
 
 func _ready():
 	for child in get_children():

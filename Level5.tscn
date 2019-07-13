@@ -8,7 +8,7 @@
 [node name="Level5" type="Node2D"]
 script = ExtResource( 1 )
 message = "Level 5
-Victory will come to one and only one"
+You are near the end! "
 
 [node name="BigCake" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 277.512 )
