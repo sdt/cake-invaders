@@ -7,13 +7,13 @@ var mode = ModeBegin
 
 const StartScreen = preload("res://StartScreen.tscn")
 const Level = [
-	preload("res://Level4.tscn"),
 	preload("res://Level1.tscn"),
 	preload("res://Level2.tscn"),
 	preload("res://Level3.tscn"),
+	preload("res://Level4.tscn"),
 ];
 var startScreen
-var levelIndex = 0
+var levelIndex = Level.size() - 1;
 var currentLevel
 const messageTime = 2
 var messageTimeRemaining = 0
