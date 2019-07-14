@@ -1,8 +1,7 @@
 class_name GameLevel
-
 extends Level
 
-export(bool) var hasPlayer = true;
+export(String, MULTILINE) var message = "Get Ready";
 
 const endOfLevelWaitTime = 3
 var waitTime = 0.0

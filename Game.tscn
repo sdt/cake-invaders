@@ -33,7 +33,11 @@ z_as_relative = false
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Message" type="Label" parent="."]
+[node name="UI" type="Node2D" parent="."]
+z_index = 100
+z_as_relative = false
+
+[node name="Message" type="Label" parent="UI"]
 margin_left = 556.0
 margin_top = 394.0
 margin_right = 1308.0

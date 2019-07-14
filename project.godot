@@ -73,6 +73,11 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Projectile.gd"
+}, {
+"base": "Level",
+"class": "UILevel",
+"language": "GDScript",
+"path": "res://UILevel.gd"
 } ]
 _global_script_class_icons={
 "Bomb": "",
@@ -87,7 +92,8 @@ _global_script_class_icons={
 "HomingMissile": "",
 "Level": "",
 "Player": "",
-"Projectile": ""
+"Projectile": "",
+"UILevel": ""
 }
 
 [application]
