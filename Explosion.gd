@@ -10,6 +10,7 @@ var rot
 
 func _ready():
 	rot = rand_range(-PI, +PI)
+	scale = Vector2(minScale, minScale)
 
 func _process(delta):
 	time += delta

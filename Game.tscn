@@ -18,6 +18,9 @@ z_index = 70
 z_as_relative = false
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+explosions = 13
+explosionTime = 0.1
+explosionRadius = 45.995
 
 [node name="Area2D" type="Area2D" parent="Player"]
 input_pickable = false
