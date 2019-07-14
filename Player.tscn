@@ -8,7 +8,6 @@
 [node name="Player" type="Sprite"]
 editor/display_folded = true
 position = Vector2( 960, 980 )
-scale = Vector2( 0.75, 0.75 )
 z_index = 70
 z_as_relative = false
 texture = ExtResource( 1 )

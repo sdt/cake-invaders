@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Doughnut.png" type="Texture" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Tablecloth.png" type="Texture" id=4]
 [ext_resource path="res://UI.gd" type="Script" id=5]
 [ext_resource path="res://Font.tres" type="DynamicFont" id=6]
-
-[sub_resource type="CircleShape2D" id=1]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,9 +24,8 @@ explosionRadius = 45.995
 input_pickable = false
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/Area2D"]
+polygon = PoolVector2Array( -37.9685, -119.539, -0.510986, -125.351, 39.5298, -107.268, 80.8623, -57.5398, 92.4871, -28.478, 80.2164, 36.7498, 36.3008, 80.0198, -19.2397, 100.686, -50.8849, 98.1027, -96.0923, 64.52, -119.342, 37.3956, -115.467, -20.7281, -70.9053, -96.289 )
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
