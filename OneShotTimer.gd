@@ -12,6 +12,7 @@ func update(delta):
 	currentTime += delta
 	if currentTime > endTime:
 		currentTime = endTime
+	return isFinished()
 		
 func normalised():
 	return currentTime / endTime
