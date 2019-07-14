@@ -4,10 +4,10 @@
 [ext_resource path="res://Enemy.gd" type="Script" id=2]
 
 [node name="FloralCupcake" type="Sprite"]
-position = Vector2( 100, 100 )
 z_index = 60
 z_as_relative = false
 texture = ExtResource( 1 )
+offset = Vector2( 22, 0 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -15,5 +15,5 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 9.86987, -219.869, 134.764, -85.1146, 88.7504, 187.681, -9.85039, 204.114, -108.451, 187.681, -128.171, -114.695 )
+polygon = PoolVector2Array( 9.81406, -147.286, 91.0829, -66.0168, 68.0823, 116.455, 6.74728, 136.389, -68.3881, 113.388, -76.0549, -81.3505 )
 

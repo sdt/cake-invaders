@@ -12,7 +12,6 @@ It's time to fight"
 
 [node name="FloralCupcake" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 161.67 )
-scale = Vector2( 0.6, 0.6 )
 health = 15
 missileTime = 1.5
 missileType = "Bomb"
