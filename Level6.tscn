@@ -15,7 +15,7 @@ Victory Will Come To One And Only One
 [node name="DeathCake" parent="." instance=ExtResource( 2 )]
 position = Vector2( 866.175, 428.883 )
 scale = Vector2( 0.8, 0.8 )
-health = 150
+health = 120
 missileTime = 0.5
 missileOffset = Vector2( 0, -100 )
 
