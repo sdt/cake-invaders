@@ -26,7 +26,7 @@ onready var explosionsRemaining = explosions
 var dead = false
 
 var deathSequenceTimer
-var normalScale
+onready var normalScale = scale
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -113,7 +113,6 @@ func setPausedMode(isPausedMode):
 	
 func startDeathSequence():
 	deathSequenceTimer = OneShotTimer.new(explosions * explosionTime)
-	normalScale = scale
 	explosionsRemaining = explosions
 	explosionTimeRemaining = 0
 	
