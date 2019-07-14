@@ -43,10 +43,10 @@ z_as_relative = false
 script = ExtResource( 5 )
 
 [node name="Message" type="Label" parent="UI"]
-margin_left = 556.0
-margin_top = 394.0
-margin_right = 1308.0
-margin_bottom = 669.0
+margin_left = 559.0
+margin_top = 94.0
+margin_right = 1311.0
+margin_bottom = 1000.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.909804, 0.776471, 0, 1 )

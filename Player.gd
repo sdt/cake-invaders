@@ -25,6 +25,9 @@ onready var explosionTimeRemaining = 0
 onready var explosionsRemaining = explosions
 var dead = false
 
+var deathSequenceTimer
+var normalScale
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Area2D.connect("area_entered", self, "hit")
@@ -64,6 +67,8 @@ func processAlive(delta):
 	position.x = clamp(position.x, leftEdge, rightEdge)
 	
 func processDead(delta):
+	deathSequenceTimer.update(delta)
+	scale = (1.0 - deathSequenceTimer.normalised()) * normalScale
 	explosionTimeRemaining -= delta
 	if explosionTimeRemaining <= 0:
 		explosionTimeRemaining += explosionTime
@@ -99,6 +104,7 @@ func updateHealth(damage):
 	health -= damage
 	if health < 0:
 		health = 0
+	if health == 0:
 		startDeathSequence()
 	healthBar.setValue(health, maxHealth, damage == 0)
 	
@@ -106,6 +112,7 @@ func setPausedMode(isPausedMode):
 	pausedMode = isPausedMode
 	
 func startDeathSequence():
-	visible = false
+	deathSequenceTimer = OneShotTimer.new(explosions * explosionTime)
+	normalScale = scale
 	explosionsRemaining = explosions
 	explosionTimeRemaining = 0
