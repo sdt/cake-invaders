@@ -45,9 +45,13 @@ func updatePlaying(delta):
 		ui.setMessage("Game Over", 2.5, self, "startPlayAgain")
 		gameMode = GameMode.GameOver
 	elif currentLevel.isFinished():
-		closeLevel()
-		levelIndex = (levelIndex + 1) % Level.size()
-		initLevel(Level[levelIndex])
+		if levelIndex == Level.size() - 1:
+			ui.setMessage("You won!", 5, self, "startPlayAgain")
+			gameMode = GameMode.GameOver
+		else:
+			closeLevel()
+			levelIndex = (levelIndex + 1) % Level.size()
+			initLevel(Level[levelIndex])
 
 func initLevel(type):
 	currentLevel = type.instance()

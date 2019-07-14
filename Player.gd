@@ -10,7 +10,7 @@ var fireButtonDown = false
 const Bullet = preload("res://Bullet.tscn")
 const gameObjectType = "Player"
 var healthBar
-var maxHealth = 10 # 100
+var maxHealth = 100
 var health = maxHealth
 var pausedMode = false
 const edgeOffset = 40
