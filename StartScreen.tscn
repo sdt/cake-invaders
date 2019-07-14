@@ -4,10 +4,11 @@
 [ext_resource path="res://UILevel.gd" type="Script" id=2]
 
 [node name="StartScreen" type="Sprite"]
-position = Vector2( 396.284, 529.625 )
+position = Vector2( 399.742, 546.917 )
 z_index = 10
 z_as_relative = false
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-messages = [ "Presents", "Cake Invaders", "Press Space to Start" ]
+messages = [ "Rainbow Cloud Games
+", "Presents", "Cake Invaders", "Press Space to Start" ]
 

@@ -13,9 +13,7 @@ const Level = [
 ]
 var levelIndex = 0 # Level.size() - 1;
 var currentLevel
-const messageTime = 2
-var messageTimeRemaining = 0
-onready var messageBox = $UI/Message
+onready var ui = $UI
 
 func _init():
 	randomize()
@@ -27,10 +25,9 @@ func _ready():
 	initLevel(Level[levelIndex])
 		
 func _process(delta):
-	if messageTimeRemaining > 0:
-		messageTimeRemaining = messageTimeRemaining - delta
-		if messageTimeRemaining <= 0:
-			messageBox.visible = false
+	if player.dead:
+		ui.setMessage("Game Over")
+		 
 	if currentLevel.isFinished():
 		remove_child(currentLevel)
 		levelIndex = (levelIndex + 1) % Level.size()
@@ -38,16 +35,12 @@ func _process(delta):
 
 func initLevel(type):
 	currentLevel = type.instance()
+	currentLevel.ui = ui
 	if currentLevel is GameLevel:
 		player.visible = true
-		messageBox.visible = true
-		messageBox.text = currentLevel.message
 		currentLevel.setPlayer(player)
-		messageTimeRemaining = messageTime
 	else:
 		player.setPausedMode(true)
 		player.visible = false
-		currentLevel.messageBox = messageBox
-		messageTimeRemaining = 0
-	
+
 	add_child(currentLevel)

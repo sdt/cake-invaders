@@ -14,6 +14,7 @@ func _ready():
 		if child is Enemy:
 			enemy = child
 			enemy.healthBar = $HealthBars/EnemyHealthBar
+	ui.setMessage(message, 2)
 			
 func _process(delta):
 	if waitTime == 0 && enemy.currentHealth <= 0:
