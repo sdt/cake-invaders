@@ -2,7 +2,6 @@ class_name EnemyBehaviourDeath
 
 extends EnemyBehaviour
 
-var acceleration = Vector2(0.0, -225.0)
 var velocity = Vector2(0.0, -650)
 var rotationSpeed = rand_range(2, 5) * PI
 

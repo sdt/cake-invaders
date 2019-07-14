@@ -6,6 +6,7 @@ const Explosion = preload("res://Explosion.tscn")
 
 func _ready():
 	$Area2D.connect("area_entered", self, "hit")
+	add_to_group("ProjectilesGroup")
 	
 func die():
 	var explosion = Explosion.instance()

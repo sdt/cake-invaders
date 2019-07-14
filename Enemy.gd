@@ -82,3 +82,4 @@ func die():
 	behaviour = EnemyBehaviourDeath.new()
 	behaviour.enemy = self
 	add_child(behaviour)
+	get_tree().call_group("ProjectilesGroup", "die")
