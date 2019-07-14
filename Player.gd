@@ -116,3 +116,11 @@ func startDeathSequence():
 	normalScale = scale
 	explosionsRemaining = explosions
 	explosionTimeRemaining = 0
+	
+func reset():
+	dead = false
+	health = maxHealth
+	position.x = 1920 / 2
+	speed = 0
+	healthBar.setValue(health, maxHealth, true)
+	scale = normalScale

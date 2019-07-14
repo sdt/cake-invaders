@@ -11,13 +11,10 @@ export(float) var verticalSpeed = 8.1
 var xTheta = rand_range(0, PI * 2)
 var yTheta = rand_range(0, PI * 2)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	originalPosition = enemy.position
+	_process(0)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

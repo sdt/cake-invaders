@@ -15,9 +15,10 @@ var levelIndex = 0 # Level.size() - 1;
 var currentLevel
 onready var ui = $UI
 
-enum { GameMode_Playing, GameMode_GameOver, GameMode_PlayAgain };
+enum GameMode { Playing, GameOver, PlayAgain };
 
-var gameMode = GameMode_Playing
+var gameMode = GameMode.Playing
+var spaceWasPressed = false
 
 func _init():
 	randomize()
@@ -30,19 +31,19 @@ func _ready():
 		
 func _process(delta):
 	match gameMode:
-		GameMode_Playing:
+		GameMode.Playing:
 			updatePlaying(delta)
 			
-		GameMode_GameOver:
+		GameMode.GameOver:
 			pass
 			
-		GameMode_PlayAgain:
-			pass
+		GameMode.PlayAgain:
+			updatePlayAgain(delta)
 	
 func updatePlaying(delta):
 	if player.dead:
 		ui.setMessage("Game Over", 2.5, self, "startPlayAgain")
-		gameMode = GameMode_GameOver
+		gameMode = GameMode.GameOver
 	elif currentLevel.isFinished():
 		closeLevel()
 		levelIndex = (levelIndex + 1) % Level.size()
@@ -66,4 +67,21 @@ func closeLevel():
 	
 func startPlayAgain():
 	ui.setMessage("Press space to play again")
-	gameMode = GameMode_PlayAgain
+	gameMode = GameMode.PlayAgain
+	
+func updatePlayAgain(delta):
+	if spacePressed():
+		reset()
+		
+func reset():
+	player.reset()
+	closeLevel()
+	levelIndex = 1
+	initLevel(Level[levelIndex])
+	gameMode = GameMode.Playing
+	
+func spacePressed():
+	var spaceIsPressed = Input.is_key_pressed(KEY_SPACE)
+	var pressed = spaceWasPressed && !spaceIsPressed
+	spaceWasPressed = spaceIsPressed
+	return pressed
