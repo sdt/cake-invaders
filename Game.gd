@@ -4,6 +4,7 @@ var player
 
 const Level = [
 	preload("res://StartScreen.tscn"),
+	preload("res://AttractScreen.tscn"),
 	preload("res://Level1.tscn"),
 	preload("res://Level2.tscn"),
 	preload("res://Level3.tscn"),
@@ -89,7 +90,7 @@ func updatePlayAgain(delta):
 func reset():
 	player.reset()
 	closeLevel()
-	levelIndex = 1
+	levelIndex = 2
 	initLevel(Level[levelIndex])
 	gameMode = GameMode.Playing
 	
