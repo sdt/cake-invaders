@@ -19,6 +19,7 @@ var damageTime = 0
 var healthBar
 var currentHealth
 var behaviour
+var firePoints = [ ]
 
 func _enter_tree():
 	behaviour = find_node("EnemyBehaviour*", true, false)
@@ -29,6 +30,9 @@ func _ready():
 	player = get_node("/root/Game/Player")
 	$Area2D.connect("area_entered", self, "hit")
 	currentHealth = health
+	for child in get_children():
+		if child is FirePoint:
+			firePoints.push_back(child)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,9 +41,19 @@ func _process(delta):
 		updateMissile(delta)
 
 func fire(target):
-	var missile = missileClass.get(missileType).instance()
-	missile.position = position + missileOffset
+	var offset = missileOffset
+	var type = missileType
+	var rotation = 0
+	if firePoints.size() > 0:
+		var firePoint = firePoints[ randi() % firePoints.size() ]
+		offset = firePoint.position
+		type = firePoint.missileType
+		rotation = firePoint.rotation
+		
+	var missile = missileClass.get(type).instance()
+	missile.position = position + offset
 	missile.target = target
+	missile.rotation = rotation
 	get_parent().add_child(missile)
 	
 func makeMissile():
