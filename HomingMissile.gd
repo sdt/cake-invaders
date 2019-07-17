@@ -4,23 +4,32 @@ extends Projectile
 
 var target
 
-const angleAdjust = 3 * PI / 2
+const angleAdjust = deg2rad(90)
 const angleDelta = PI * 0.2
-const angleLimit = PI / 4
-const minAngle = PI - angleLimit
-const maxAngle = PI + angleLimit
+const angleLimit = deg2rad(45)
+const minAngle = -angleLimit
+const maxAngle = +angleLimit
 var life = 1
 const gameObjectType = "EnemyBullet"
+
+# angle = 0 -> straight down = transform.y
+
+func _ready():
+	var angle = get_rotation()
+	set_rotation(normalise(angle))
 
 func _process(delta):
 	if position.y >= 1080:
 		die()
-	elif position.y < 900:
+	elif position.y < 1800:
 		updateHoming(delta)
-	position = position - transform.y * 3.0 * 60 * delta
+	position = position + transform.y * 3.5 * 60 * delta
 	
 func updateHoming(delta):
-	var targetAngle = position.angle_to_point(target.position) + angleAdjust
+	var targetAngle = normalise(position.angle_to_point(target.position) + angleAdjust)
+	
+	# We have a min/max angle, but we don't clamp to it. The missile can start outside that range
+	# and the move into it, but once inside that range, can't move out.
 	var angle = get_rotation()
 	if angle > targetAngle:
 		angle = angle - angleDelta * delta
@@ -40,3 +49,7 @@ func hit(object):
 		life = 0
 	if life <= 0:
 		die()
+		
+# Normalises an angle to be between 
+func normalise(angle):
+	return wrapf(angle, -PI, +PI)
