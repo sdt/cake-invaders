@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://HealthBar.gd" type="Script" id=1]
-[ext_resource path="res://BarCanvas.gd" type="Script" id=2]
 
 [node name="HealthBar" type="Sprite"]
 script = ExtResource( 1 )
 healthyColor = Color( 0.133333, 0.717647, 0.133333, 1 )
 sickColor = Color( 0.847059, 0.180392, 0.180392, 1 )
-
-[node name="BarCanvas" type="Node2D" parent="."]
-z_index = -1
-script = ExtResource( 2 )
 
