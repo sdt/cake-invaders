@@ -25,9 +25,9 @@ func _process(delta):
 		value -= adjust
 		if value < targetValue:
 			value = targetValue
-		if indicatedValue != value:
-			indicatedValue = value
-			setIndicatorValue(indicator, value)
+	if indicatedValue != value:
+		indicatedValue = value
+		setIndicatorValue(indicator, value)
 		
 func setupIndicator(i):
 	i.region_rect.position = Vector2.ZERO
@@ -43,3 +43,4 @@ func setValue(currentHealth, maxHealth, immediate = false):
 	targetValue = currentHealth * 1.0 / maxHealth
 	if immediate:
 		value = targetValue
+		indicatedValue = -1 # force refresh
