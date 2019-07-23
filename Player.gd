@@ -6,7 +6,6 @@ extends Sprite
 var speed = 0
 const maxSpeed = 10.0
 const accel = 1.75
-var fireButtonDown = false
 const Bullet = preload("res://Bullet.tscn")
 const gameObjectType = "Player"
 var healthBar
@@ -38,18 +37,16 @@ func _process(delta):
 		processAlive(delta)
 	else:
 		processDead(delta)
-	
+
 func processAlive(delta):
-	var fireButtonPrev = fireButtonDown
-	fireButtonDown = Input.is_key_pressed(KEY_SPACE)
-	if fireButtonDown and not fireButtonPrev:
+	if Input.is_action_just_pressed("ui_fire"):
 		fire()
-	if Input.is_key_pressed(KEY_LEFT):
+	if Input.is_action_pressed("ui_move_left"):
 		if speed > 0:
 			speed = -accel
 		elif -speed <= maxSpeed:
 			speed = speed - accel
-	elif Input.is_key_pressed(KEY_RIGHT):
+	elif Input.is_action_pressed("ui_move_right"):
 		if speed < 0:
 			speed = accel
 		elif speed <= maxSpeed:
@@ -65,7 +62,7 @@ func processAlive(delta):
 
 	position.x = position.x + 30 * delta * speed
 	position.x = clamp(position.x, leftEdge, rightEdge)
-	
+
 func processDead(delta):
 	deathSequenceTimer.update(delta)
 	scale = (1.0 - deathSequenceTimer.normalised()) * normalScale
@@ -77,7 +74,7 @@ func processDead(delta):
 			fireExplosion()
 		else:
 			dead = true
-			
+
 func fireExplosion():
 	var explosion = Explosion.instance()
 	explosion.position = position + Vector2(rand_range(-explosionRadius, explosionRadius), rand_range(-explosionRadius, explosionRadius))
@@ -99,7 +96,7 @@ func hit(object):
 		updateHealth(5)
 	elif what is Bomb:
 		updateHealth(12)
-		
+
 func updateHealth(damage):
 	health -= damage
 	if health < 0:
@@ -107,15 +104,15 @@ func updateHealth(damage):
 	if health == 0:
 		startDeathSequence()
 	healthBar.setValue(health, maxHealth, damage == 0)
-	
+
 func setPausedMode(isPausedMode):
 	pausedMode = isPausedMode
-	
+
 func startDeathSequence():
 	deathSequenceTimer = OneShotTimer.new(explosions * explosionTime)
 	explosionsRemaining = explosions
 	explosionTimeRemaining = 0
-	
+
 func reset():
 	dead = false
 	health = maxHealth

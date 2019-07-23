@@ -19,7 +19,6 @@ onready var ui = $UI
 enum GameMode { Playing, GameOver, PlayAgain };
 
 var gameMode = GameMode.Playing
-var spaceWasPressed = false
 
 export(String, MULTILINE) var winMessage = "Congratulations!\n\nYou won!"
 export(String, MULTILINE) var loseMessage = "Game Over"
@@ -34,18 +33,19 @@ func _ready():
 		if child is Player:
 			player = child
 	initLevel(Level[levelIndex])
-		
+
 func _process(delta):
+	checkExit()
 	match gameMode:
 		GameMode.Playing:
 			updatePlaying(delta)
-			
+
 		GameMode.GameOver:
 			pass
-			
+
 		GameMode.PlayAgain:
 			updatePlayAgain(delta)
-	
+
 func updatePlaying(delta):
 	if player.dead:
 		ui.setMessage(loseMessage, winLoseMessageTime, self, "startPlayAgain")
@@ -70,23 +70,23 @@ func initLevel(type):
 		player.visible = false
 
 	add_child(currentLevel)
-	
+
 func closeLevel():
 	remove_child(currentLevel)
 	currentLevel.queue_free()
-	
+
 func setWinLoseMessage():
 	var message = loseMessage if player.dead else winMessage
 	ui.setMessage(message, winLoseMessageTime, self, "startPlayAgain")
-	
+
 func startPlayAgain():
 	gameMode = GameMode.PlayAgain
 	ui.setMessage(playAgainMessage, winLoseMessageTime, self, "setWinLoseMessage")
-	
+
 func updatePlayAgain(delta):
-	if spacePressed():
+	if Input.is_action_just_pressed("ui_fire"):
 		reset()
-		
+
 func reset():
 	player.reset()
 	closeLevel()
@@ -94,8 +94,24 @@ func reset():
 	initLevel(Level[levelIndex])
 	gameMode = GameMode.Playing
 	
-func spacePressed():
-	var spaceIsPressed = Input.is_key_pressed(KEY_SPACE)
-	var pressed = spaceWasPressed && !spaceIsPressed
-	spaceWasPressed = spaceIsPressed
-	return pressed
+const quitKeys = [
+	"ui_gamepad_quit_1", 
+	"ui_gamepad_quit_2", 
+	"ui_gamepad_quit_3", 
+	"ui_gamepad_quit_4", 
+];
+
+func checkExit():
+	if Input.is_action_just_pressed("ui_kb_quit"):
+		get_tree().quit()
+	if allPressed(quitKeys) && Input.is_action_just_pressed("ui_gamepad_quit"):
+		get_tree().quit()
+	
+func allPressed(inputs):
+	for input in inputs:
+		if !Input.is_action_pressed(input):
+			return false
+	return true
+		
+		
+		
